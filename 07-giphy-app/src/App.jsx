@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 import './App.css'
+import ImageCard from "./components/ImageCard"
 
 function App() {
   //Creo el estado que se va a encargar de actualizar la lista de gifs
@@ -21,6 +22,17 @@ function App() {
     <>
       <div>
         <h1>Giphy App</h1>
+        <div className="grid-cards">
+          {
+            gifs.map((gif, index) =>(
+              <ImageCard 
+                key={gif.id + index}
+                url={gif.images.fixed_height.url}
+                title={gif.title}
+              />
+            )
+          )}
+        </div>
       </div>
     </>
   )
